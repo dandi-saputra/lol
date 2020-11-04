@@ -480,13 +480,7 @@ const start = (aruga = new Client()) => {
             await aruga.reply(from, daerahq, id)
             break
 
-        //Premium
-        case 'pornhub':
-            aruga.reply(from, `Ini merupakan commands untuk mendownload video dari pornhub\nFitur ini masih bersifat premium\n\nLebih jelasnya silahkan lihat web ini:\ngithub.com/ArugaZ/whatsapp-bot`, id)
-            break
-        case 'simsimi':
-            aruga.reply(from, `Ini merupakan commands untuk mengaktifkan simi-simi chat bot\nFitur ini masih bersifat premium\n\nLebih jelasnya silahkan lihat web ini:\ngithub.com/ArugaZ/whatsapp-bot`, id)
-            break
+        
 
         //Media
         case 'instagram':
@@ -589,20 +583,6 @@ const start = (aruga = new Client()) => {
             const cariresep = body.slice(7)
             const hasilresep = await resep.resep(cariresep)
             aruga.reply(from, hasilresep + '\n\nIni kak resep makanannya..', id)
-            break
-        case 'nekopoi':
-            aruga.sendText(from, `Sedang mencari video terbaru dari website nekopoi...`)
-            rugapoi.getLatest()
-            .then((result) => {
-                rugapoi.getVideo(result.link)
-                .then((res) => {
-                    let heheq = '\n'
-                    for (let i = 0; i < res.links.length; i++) {
-                        heheq += `${res.links[i]}\n`
-                    }
-                    aruga.reply(from, `Title: ${res.title}\n\nLink:\n${heheq}\nmasih tester bntr :v`)
-                })
-            })
             break
         case 'stalkig':
             if (args.length == 0) return aruga.reply(from, `Untuk men-stalk akun instagram seseorang\nketik ${prefix}stalkig [username]\ncontoh: ${prefix}stalkig ini.arga`, id)
